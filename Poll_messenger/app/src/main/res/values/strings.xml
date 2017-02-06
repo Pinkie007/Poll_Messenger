@@ -1,0 +1,10 @@
+<resources>
+    <string-array name="messageArray">
+        <item>Did you know that each poll has a closing time and date allocated to it,so hurry up and cast your vote!</item>
+        <item>Did you know that you can share your poll on other social media</item>
+        <item>Did you know that you can vote for a poll and return to see the final poll results?</item>
+        <item>Did you know that you will receive a notification every time a new poll is being published,just to keep you connected</item>
+
+    </string-array>
+    <string name="app_name">Poll_messenger</string>
+</resources>
