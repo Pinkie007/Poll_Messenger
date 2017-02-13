@@ -24,12 +24,15 @@ import retrofit2.Retrofit;
 public class Messenger extends AppCompatActivity {
     private List<DisplayRecords> displaypoll;
     PollApi mService;
+    TextView tvJson;
+    public String JSON = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
         Button button = (Button) findViewById(R.id.btnDisplay);
+        tvJson = (TextView) findViewById(R.id.tvJson);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,8 @@ public class Messenger extends AppCompatActivity {
 
 
                 new GetLastPollTask().execute(call);
+
+                tvJson.setText("Json :" + JSON);
 
             }
 
@@ -63,6 +68,7 @@ public class Messenger extends AppCompatActivity {
 
 
                         Log.d("Tag", String.valueOf(pollJson));
+                        JSON = String.valueOf(pollJson);
                         //  String i = jArray.get(0).getAsString();
 
 
@@ -84,8 +90,11 @@ public class Messenger extends AppCompatActivity {
                     return null;
 
                 }
+
+
             }
         });
+        tvJson.setText(JSON);
     }
 }
 
