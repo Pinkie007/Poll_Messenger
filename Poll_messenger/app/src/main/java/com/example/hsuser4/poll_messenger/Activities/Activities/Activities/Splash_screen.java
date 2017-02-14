@@ -1,10 +1,10 @@
-package com.example.hsuser4.poll_messenger.Activities;
+package com.example.hsuser4.poll_messenger.Activities.Activities.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.hsuser4.poll_messenger.Activities.Poll_Details;
+import com.example.hsuser4.poll_messenger.Activities.Activities.Activities.Poll_Details;
 import com.example.hsuser4.poll_messenger.R;
 
 public class Splash_screen extends AppCompatActivity {

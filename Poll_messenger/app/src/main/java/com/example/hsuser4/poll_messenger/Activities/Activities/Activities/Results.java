@@ -1,15 +1,15 @@
-package com.example.hsuser4.poll_messenger.Activities;
+package com.example.hsuser4.poll_messenger.Activities.Activities.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.hsuser4.poll_messenger.R;
 
-public class Messenger extends AppCompatActivity {
+public class Results extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messenger);
+        setContentView(R.layout.activity_results);
     }
 }

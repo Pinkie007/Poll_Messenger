@@ -1,14 +1,14 @@
-package com.example.hsuser4.poll_messenger.Activities;
+package com.example.hsuser4.poll_messenger.Activities.Activities.Activities;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.hsuser4.poll_messenger.Activities.MainActivity;
 import com.example.hsuser4.poll_messenger.R;
 
 import java.util.Random;
@@ -27,7 +27,11 @@ public class Poll_Details extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poll__details);
+        setContentView(R.layout.activity_poll_details);
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("android : ").append(Build.VERSION.RELEASE);
+
 
         btn_skip = (Button) findViewById(R.id.button_skip);
 
@@ -39,6 +43,14 @@ public class Poll_Details extends AppCompatActivity {
         txtmessage = (TextView) findViewById(R.id.textview_display);
         txtmessage.setText(m);
 
+//        //Meta data version
+//        String os = Build.MANUFACTURER;
+//        String dev = Build.VERSION.RELEASE;
+//        String dev4 = Build.MODEL;
+//
+//
+//        txtmessage = (TextView) findViewById(R.id.textview_display);
+//        txtmessage.setText(os + " - " + dev + " - "  + dev4 );
 
         //Button clicked open main activity
         btn_skip.setOnClickListener(new View.OnClickListener() {

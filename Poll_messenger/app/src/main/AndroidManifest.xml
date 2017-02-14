@@ -2,22 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hsuser4.poll_messenger">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/southpoll"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Splash_screen">
+        <activity android:name=".Activities.Activities.Activities.Splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.Poll_Details" />
-        <activity android:name=".Activities.Messenger"></activity>
+        <activity android:name=".Activities.Activities.Activities.MainActivity" />
+        <activity android:name=".Activities.Activities.Activities.Poll_Details" />
+        <activity android:name=".Activities.Activities.Activities.Messenger" />
+
+        <meta-data
+            android:name="net.hockeyapp.android.appIdentifier"
+            android:value="a8be7315f1e1405ca1886fed815f2710" />
+
+        <activity android:name=".Activities.Activities.Activities.Display_Data" />
+        <activity android:name=".Activities.Activities.Activities.Results"></activity>
     </application>
 
 </manifest>
