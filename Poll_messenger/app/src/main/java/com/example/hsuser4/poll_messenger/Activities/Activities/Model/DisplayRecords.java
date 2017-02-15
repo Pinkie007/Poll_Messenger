@@ -10,11 +10,12 @@ import java.util.ArrayList;
 
 public class DisplayRecords {
     //Declare variables
-    @SerializedName("poll_guid")
+
+    @SerializedName("guid")
     String poll_guid;
-    @SerializedName("poll_title")
+    @SerializedName("title")
     String poll_title;
-    @SerializedName("poll_description")
+    @SerializedName("description")
     String poll_description;
     @SerializedName("question")
     String question;
@@ -24,18 +25,16 @@ public class DisplayRecords {
     String start_date;
     @SerializedName("end_date")
     String end_date;
-    @SerializedName("thanks_message")
+    @SerializedName("message")
     String thanks_message;
     @SerializedName("closed_message")
     String closed_message;
-    @SerializedName("notification_text")
+    @SerializedName("notification")
     String notification_text;
     @SerializedName("share_url")
     String share_url;
     @SerializedName("author")
     String author;
-    @SerializedName("ans_count")
-    int ans_count;
 
 
     public String getPoll_guid() {
@@ -141,12 +140,6 @@ public class DisplayRecords {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public int getAns_count() {
-        return ans_count;
-    }
 
-    public void setAns_count(int ans_count) {
-        this.ans_count = ans_count;
-    }
 
 }

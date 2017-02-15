@@ -16,4 +16,22 @@
         android:id="@+id/recyclerview_display"
         android:scrollbars="vertical"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:hint="Poll title"
+        />
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:hint="Poll description"
+        />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:src="@drawable/next"
+        android:layout_below="@+id/recyclerview_display"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>
