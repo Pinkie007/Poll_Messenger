@@ -13,7 +13,6 @@ public class ApiClient {
 
     //Setup RetroFit
     public static Retrofit getClient() {
-
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(base_url)

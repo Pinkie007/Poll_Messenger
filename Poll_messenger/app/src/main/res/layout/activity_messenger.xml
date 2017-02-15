@@ -12,6 +12,7 @@
     tools:context="com.example.hsuser4.poll_messenger.Activities.Activities.Activities.Messenger">
     <Button
         android:layout_width="wrap_content"
+        android:text="Display"
         android:layout_height="wrap_content"
         android:id="@+id/btnDisplay"
         />
