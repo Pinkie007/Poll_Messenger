@@ -10,11 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbars="vertical"
     tools:context="com.example.hsuser4.poll_messenger.Activities.Activities.Activities.Messenger">
+
     <Button
+        android:text="Display poll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnDisplay"
         />
+
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
@@ -25,4 +28,11 @@
         android:id="@+id/tvJson"
         android:scrollbars="vertical"
         />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="Review"-->
+        <!--android:id="@+id/btnanswers"-->
+        <!--/>-->
+
 </RelativeLayout>

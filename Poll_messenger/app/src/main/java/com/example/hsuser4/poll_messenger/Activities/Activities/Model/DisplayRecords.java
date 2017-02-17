@@ -3,6 +3,7 @@ package com.example.hsuser4.poll_messenger.Activities.Activities.Model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hsuser4 on 2017/02/09.
@@ -10,31 +11,73 @@ import java.util.ArrayList;
 
 public class DisplayRecords {
     //Declare variables
-
-    @SerializedName("guid")
+    @SerializedName("poll_guid")
     String poll_guid;
-    @SerializedName("title")
+    @SerializedName("poll_title")
     String poll_title;
-    @SerializedName("description")
+    @SerializedName("poll_description")
     String poll_description;
     @SerializedName("question")
     String question;
-    @SerializedName("answers")
-    private ArrayList<DisplayRecords> Answers;
+    @SerializedName("answer")
+    private List<DisplayRecords> answer;
     @SerializedName("start_date")
     String start_date;
     @SerializedName("end_date")
     String end_date;
-    @SerializedName("message")
+    @SerializedName("thanks_message")
     String thanks_message;
     @SerializedName("closed_message")
     String closed_message;
-    @SerializedName("notification")
+    @SerializedName("notification_text")
     String notification_text;
     @SerializedName("share_url")
     String share_url;
     @SerializedName("author")
     String author;
+    @SerializedName("status")
+    int status;
+    @SerializedName("answer1")
+     String answer1;
+    @SerializedName("answer2")
+    String answer2;
+    @SerializedName("answer3")
+    String answer3  ;
+    @SerializedName("answer4")
+    String answer4;
+
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public void setAnswer1(String answer1) {
+        this.answer1 = answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
+
+    public void setAnswer2(String answer2) {
+        this.answer2 = answer2;
+    }
+
+    public String getAnswer3() {
+        return answer3;
+    }
+
+    public void setAnswer3(String answer3) {
+        this.answer3 = answer3;
+    }
+
+    public String getAnswer4() {
+        return answer4;
+    }
+
+    public void setAnswer4(String answer4) {
+        this.answer4 = answer4;
+    }
 
 
     public String getPoll_guid() {
@@ -68,13 +111,6 @@ public class DisplayRecords {
         this.question = question;
     }
 
-    public ArrayList<DisplayRecords> getAnswers() {
-        return Answers;
-    }
-
-    public void setAnswers(ArrayList<DisplayRecords> answers) {
-        Answers = answers;
-    }
 
     public String getStart_date() {
         return start_date;
@@ -91,7 +127,6 @@ public class DisplayRecords {
     public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
-
 
     public String getQuestion() {
         return question;
@@ -139,6 +174,20 @@ public class DisplayRecords {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    public List<DisplayRecords> getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(List<DisplayRecords> answer) {
+        this.answer = answer;
     }
 
 
