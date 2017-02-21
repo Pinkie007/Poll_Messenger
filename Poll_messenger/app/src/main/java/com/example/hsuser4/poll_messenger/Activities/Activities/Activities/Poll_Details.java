@@ -47,10 +47,14 @@ public class Poll_Details extends AppCompatActivity {
 //        String os = Build.MANUFACTURER;
 //        String dev = Build.VERSION.RELEASE;
 //        String dev4 = Build.MODEL;
+//        String location ="Durban";
+//        String user_name = "";
+//
+//
 //
 //
 //        txtmessage = (TextView) findViewById(R.id.textview_display);
-//        txtmessage.setText(os + " - " + dev + " - "  + dev4 );
+//        txtmessage.setText(os + " - " + dev + " - "  + dev4  + "-" + location + " _" );
 
         //Button clicked open main activity
         btn_skip.setOnClickListener(new View.OnClickListener() {

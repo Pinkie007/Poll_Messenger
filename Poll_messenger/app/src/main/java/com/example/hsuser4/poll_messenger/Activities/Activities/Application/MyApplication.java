@@ -18,12 +18,11 @@ import io.realm.RealmSchema;
 public class MyApplication extends Application {
     public void onCreate()
     {
-        super.onCreate();
-
+       super.onCreate();
 
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
                 .name(Realm.DEFAULT_REALM_NAME)
-                .schemaVersion(6)
+                .schemaVersion(22)
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);

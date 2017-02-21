@@ -26,7 +26,8 @@
             android:value="a8be7315f1e1405ca1886fed815f2710" />
 
         <activity android:name=".Activities.Activities.Activities.Display_Data" />
-        <activity android:name=".Activities.Activities.Activities.Results"></activity>
+        <activity android:name=".Activities.Activities.Activities.Results" />
+        <activity android:name=".Activities.Activities.Activities.PostPoll"></activity>
     </application>
 
 </manifest>

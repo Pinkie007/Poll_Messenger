@@ -23,7 +23,7 @@ public class Splash_screen extends AppCompatActivity {
 
                     sleep(3000);
 
-                    Intent intent = new Intent(getApplicationContext(),Poll_Details.class);
+                    Intent intent = new Intent(getApplicationContext(), Poll_Details.class);
 
                     startActivity(intent);
                     finish();
