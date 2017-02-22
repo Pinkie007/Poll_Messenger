@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.hsuser4.poll_messenger.Activities.Activities.Activities.PostPoll">
+    tools:context="com.example.hsuser4.poll_messenger.Activities.Activities.Activities.Activity_poll_post">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,6 +16,15 @@
         android:id="@+id/tvpostdata"
         android:text="Display "
         />
+
+    <Button
+        android:text="POST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
+        android:id="@+id/btnPost"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <!--<Button-->
         <!--android:layout_width="match_parent"-->

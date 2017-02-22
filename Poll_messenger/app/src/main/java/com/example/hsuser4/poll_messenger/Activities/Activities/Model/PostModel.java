@@ -1,5 +1,6 @@
 package com.example.hsuser4.poll_messenger.Activities.Activities.Model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -11,15 +12,24 @@ import java.util.List;
 public class PostModel {
     //Declare variables
     @SerializedName("pollGuid")
+    @Expose
     String poll_guid;
     @SerializedName("ansId")
+    @Expose
     private List<PostModel>ansId;
+    @SerializedName("location")
     String location;
+    @SerializedName("manufacturer")
     String manufacturer;
+    @SerializedName("device_model")
     String device_model;
+    @SerializedName("os_version")
     String os_version;
+    @SerializedName("user_name")
     String user_name;
+    @SerializedName("user_id")
     String user_id;
+    @SerializedName("date_voted")
     String date_voted;
 
     public String getPoll_guid() {

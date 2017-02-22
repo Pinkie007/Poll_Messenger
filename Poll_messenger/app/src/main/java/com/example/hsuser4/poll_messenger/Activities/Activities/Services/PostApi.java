@@ -17,7 +17,19 @@ import retrofit2.http.Query;
 public interface PostApi {
     @POST("/{tennantID}/api/AnsResult")
     @FormUrlEncoded
-    Callback<PostModel> savePost();
+    Call<PostModel> savePost(
+            @Field("pollGuid") String pollGuid,
+            @Field("ansId") int ansId,
+            @Field("os_type") String os_type,
+            @Field("location") String location,
+            @Field("manufacturer") String manufacturer,
+            @Field("device_model") String device_model,
+            @Field("os_version") String os_version,
+            @Field("user_name") String user_name,
+            @Field("user_id") String user_id,
+            @Field("date_voted") String dateVoted
+    );
+
 
 
 }

@@ -25,9 +25,9 @@
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="a8be7315f1e1405ca1886fed815f2710" />
 
-        <activity android:name=".Activities.Activities.Activities.Display_Data" />
-        <activity android:name=".Activities.Activities.Activities.Results" />
-        <activity android:name=".Activities.Activities.Activities.PostPoll"></activity>
+        <activity android:name=".Activities.Activities.Activities.AnswersDisplayActivity" />
+        <activity android:name=".Activities.Activities.Activities.PollsDisplayActivity" />
+        <activity android:name=".Activities.Activities.Activities.Activity_poll_post"></activity>
     </application>
 
 </manifest>
