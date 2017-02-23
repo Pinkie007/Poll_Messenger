@@ -13,7 +13,7 @@ import com.example.hsuser4.poll_messenger.R;
 
 import java.util.Random;
 
-public class Poll_Details extends AppCompatActivity {
+public class DidYouKnowActivity extends AppCompatActivity {
     //Declare variables
     TextView txtmessage;
     Button btn_skip;

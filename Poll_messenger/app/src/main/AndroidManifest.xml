@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.Activities.Activities.MainActivity" />
-        <activity android:name=".Activities.Activities.Activities.Poll_Details" />
+        <activity android:name=".Activities.Activities.Activities.DidYouKnowActivity" />
         <activity android:name=".Activities.Activities.Activities.Messenger" />
 
         <meta-data
@@ -27,7 +27,7 @@
 
         <activity android:name=".Activities.Activities.Activities.AnswersDisplayActivity" />
         <activity android:name=".Activities.Activities.Activities.PollsDisplayActivity" />
-        <activity android:name=".Activities.Activities.Activities.Activity_poll_post"></activity>
+        <activity android:name=".Activities.Activities.Activities.PostPollActivity"></activity>
     </application>
 
 </manifest>

@@ -39,11 +39,7 @@ public class AnswersDisplayActivity extends AppCompatActivity {
             guid = getIntent().getStringExtra("Poll GUID").toString();
         }
 
-
-        //TODO: take guid variable and query realm database on answermodel where answertmodel pollIdentier value is equal to guid
-
-
-       AnswerOptionsAdapter answerOptionsAdapter = new AnswerOptionsAdapter(arrayList, this);
+             AnswerOptionsAdapter answerOptionsAdapter = new AnswerOptionsAdapter(arrayList, this);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_display);
         recyclerView.setHasFixedSize(true);

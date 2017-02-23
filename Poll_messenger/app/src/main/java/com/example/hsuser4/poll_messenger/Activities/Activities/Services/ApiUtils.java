@@ -9,7 +9,7 @@ import retrofit2.Retrofit;
 public class ApiUtils {
     private  ApiUtils() {}
 
-     public static  final String BaseURl = "http://pollapi.azurewebsites.net/";
+     public static  final String BaseURl = "http://pollapi.azurewebsites.net";
 
         public static PostApi getPostApi()
     {

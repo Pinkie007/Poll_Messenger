@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.hsuser4.poll_messenger.Activities.Activities.Activities.Poll_Details;
 import com.example.hsuser4.poll_messenger.R;
 
 public class Splash_screen extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class Splash_screen extends AppCompatActivity {
 
                     sleep(3000);
 
-                    Intent intent = new Intent(getApplicationContext(), Poll_Details.class);
+                    Intent intent = new Intent(getApplicationContext(), DidYouKnowActivity.class);
 
                     startActivity(intent);
                     finish();

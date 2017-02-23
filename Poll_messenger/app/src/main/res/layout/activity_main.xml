@@ -45,4 +45,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDisplay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:id="@+id/tvJson"
+        android:scrollbars="vertical"
+        />
+
+
 </RelativeLayout>

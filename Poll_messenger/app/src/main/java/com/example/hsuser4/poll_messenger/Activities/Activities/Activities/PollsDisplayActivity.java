@@ -48,9 +48,6 @@ public class PollsDisplayActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         mRecyclerview.setLayoutManager(layoutManager);
 
-
-
-
     }
 
     private void QueryResults() {

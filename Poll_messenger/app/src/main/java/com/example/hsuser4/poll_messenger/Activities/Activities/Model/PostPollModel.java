@@ -9,14 +9,14 @@ import java.util.List;
  * Created by hsuser4 on 2017/02/20.
  */
 
-public class PostModel {
+public class PostPollModel {
     //Declare variables
     @SerializedName("pollGuid")
     @Expose
     String poll_guid;
     @SerializedName("ansId")
     @Expose
-    private List<PostModel>ansId;
+    private List<PostPollModel>ansId;
     @SerializedName("location")
     String location;
     @SerializedName("manufacturer")
@@ -40,11 +40,11 @@ public class PostModel {
         this.poll_guid = poll_guid;
     }
 
-    public List<PostModel> getAnsId() {
+    public List<PostPollModel> getAnsId() {
         return ansId;
     }
 
-    public void setAnsId(List<PostModel> ansId) {
+    public void setAnsId(List<PostPollModel> ansId) {
         this.ansId = ansId;
     }
 
@@ -103,8 +103,5 @@ public class PostModel {
     public void setDate_voted(String date_voted) {
         this.date_voted = date_voted;
     }
-
-
-
 
 }
