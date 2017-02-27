@@ -1,6 +1,9 @@
 package com.example.hsuser4.poll_messenger.Activities.Activities.Model;
 
+import android.support.annotation.Keep;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -17,11 +20,32 @@ public class SavepollDetails extends RealmObject{
     String poll_title;
     String question;
     String end_date;
+    //private List<DisplayRecords>answer;
+//  private List<DisplayRecords>answer_id;
+    int status;
     String answer1;
     String answer2;
     String answer3;
     String answer4;
-    int status;
+
+
+
+
+//    public List<DisplayRecords> getAnswer() {
+//        return answer;
+//    }
+//
+//    public void setAnswer(List<DisplayRecords> answer) {
+//        this.answer = answer;
+//    }
+//
+//    public List<DisplayRecords> getAnswer_id() {
+//        return answer_id;
+//    }
+//
+//    public void setAnswer_id(List<DisplayRecords> answer_id) {
+//        this.answer_id = answer_id;
+//    }
 
     public String getPoll_guid() {
         return poll_guid;
@@ -62,13 +86,6 @@ public class SavepollDetails extends RealmObject{
         this.status = status;
     }
 
-    public String getAnswer1() {
-        return answer1;
-    }
-
-    public void setAnswer1(String answer1) {
-        this.answer1 = answer1;
-    }
 
     public String getAnswer2() {
         return answer2;
@@ -92,6 +109,14 @@ public class SavepollDetails extends RealmObject{
 
     public void setAnswer4(String answer4) {
         this.answer4 = answer4;
+    }
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public void setAnswer1(String answer1) {
+        this.answer1 = answer1;
     }
 
 

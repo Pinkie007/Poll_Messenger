@@ -11,26 +11,29 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.hsuser4.poll_messenger.Activities.Activities.Model.DisplayRecords;
+import com.example.hsuser4.poll_messenger.Activities.Activities.Model.PollAnswerModel;
 import com.example.hsuser4.poll_messenger.Activities.Activities.Model.SavepollDetails;
 import com.example.hsuser4.poll_messenger.Activities.Activities.Services.ApiClient;
 import com.example.hsuser4.poll_messenger.Activities.Activities.Services.PollApi;
 import com.example.hsuser4.poll_messenger.R;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static com.example.hsuser4.poll_messenger.Activities.Activities.Services.ApiClient.base_url;
+
 public class Messenger extends AppCompatActivity {
-    private DisplayRecords displaypoll;
+    public DisplayRecords displaypoll;
     PollApi mService;
     TextView tvJson;
     public String JSON = "";
@@ -47,14 +50,17 @@ public class Messenger extends AppCompatActivity {
         setContentView(R.layout.activity_messenger);
 
 
+
         Button button = (Button) findViewById(R.id.btnDisplay);
+       // Button btnAnswers = (Button)findViewById(R.id.btnanswers);
         tvJson = (TextView) findViewById(R.id.tvJson);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final Retrofit retrofit = ApiClient.getClient();
+                final Retrofit retrofit = ApiClient.getClient(base_url);
 
                 mService = retrofit.create(PollApi.class);
 
@@ -66,102 +72,120 @@ public class Messenger extends AppCompatActivity {
 
             }
 
-            class GetLastPollTask extends AsyncTask<Call, Void, DisplayRecords> {
 
-                @Override
-                protected void onPreExecute() {
-                   // showProgressDialog();
-
-                }
-
-                @Override
-                protected DisplayRecords doInBackground(Call... params) {
-                    Call<JsonObject> call = params[0];
-                    Response<JsonObject> pollResponse;
-
-                    try {
-                        pollResponse = call.execute();
-
-                        JsonObject pollJson = pollResponse.body();
-                        //JsonObject jArray = pollJson.getAsJsonObject();
-
-                        JSONObject foo = new JSONObject(String.valueOf(pollJson));
-                        //JSONObject Object2 = new JSONObject(String.valueOf(pollJson));
-
-                        JSONObject Object1 = foo.getJSONObject("answer");
-                        String strAns1 = Object1.getString("answer").toString();
-                        String AnsId1 = Object1.getString("answer_id").toString();
-
-                        JSONObject Object2 = foo.getJSONObject("answer2");
-                        String strAns2 = Object2.getString("answer").toString();
-                        String AnsId2 = Object2.getString("answer_id").toString();
-
-                        JSONObject Object3 = foo.getJSONObject("answer3");
-                        String strAns3 = Object3.getString("answer").toString();
-                        String AnsId3 = Object3.getString("answer_id").toString();
-
-                        JSONObject Object4 = foo.getJSONObject("answer4");
-                        String strAns4 = Object4.getString("answer").toString();
-                        String AnsId4 = Object4.getString("answer_id").toString();
-
-                        Log.d("Answer: ", strAns1);
-                        Log.d("Answer: ", strAns2);
-                        Log.d("Answer: ", strAns3);
-
-                        Log.d("Answer Id: ", AnsId1);
-                        Log.d("Answer Id: ", AnsId2);
-                        Log.d("Answer Id: ", AnsId3);
-
-
-
-
-                        //foo = foo.
-                        displaypoll = new DisplayRecords();
-                        displaypoll.setPoll_guid(foo.getString("poll_guid").toString());
-                        displaypoll.setPoll_title(foo.getString("poll_title").toString());
-                        displaypoll.setPoll_description(foo.getString("poll_description").toString());
-                        displaypoll.setPoll_question(foo.getString("question").toString());
-                        displaypoll.setEnd_date(foo.getString("end_date").toString());
-                        displaypoll.setStatus(foo.getInt("status"));
-                        displaypoll.setAnswer1(strAns1);
-                        displaypoll.setAnswer2(strAns2);
-                        displaypoll.setAnswer3(strAns3);
-                        displaypoll.setAnswer4(strAns4);
-
-
-
-
-                        //String answers = foo.get("answer").getClass().getField("answer").toString();
-                        //String answer2 = foo.get("answer2").getClass().getField("answer").toString();
-                        //         Log.d("Tag", pollTitle + Type + date);
-//                       JSON = poll + "\n" + pollTitle + "\n" + Type + "\n" + question + "\n" + date + "\n" + status;
-
-
-                        return displaypoll;
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
-                    return null;
-
-                }
-
-                @Override
-                protected void onPostExecute(DisplayRecords displaypoll) {
-
-                    if (displaypoll != null) {
-
-                        savepollDetails(displaypoll);
-                    } else {
-
-                        Toast.makeText(Messenger.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-
-            }
         });
+    }
+
+    class GetLastPollTask extends AsyncTask<Call, Void, DisplayRecords> {
+
+        @Override
+        protected void onPreExecute() {
+            // showProgressDialog();
+
+        }
+
+        @Override
+        protected DisplayRecords doInBackground(Call... params) {
+
+            Call<JsonObject> call = params[0];
+            Response<JsonObject> pollResponse;
+
+            try {
+                pollResponse = call.execute();
+
+                JsonObject pollJson = pollResponse.body();
+                //JsonObject jArray = pollJson.getAsJsonObject();
+
+                JSONObject poll = new JSONObject(String.valueOf(pollJson));
+
+
+//
+//                        JSONObject Object1 = foo.getJSONObject("answer");
+//                        String strAns1 = Object1.getString("answer").toString();
+//                        String AnsId1 = Object1.getString("answer_id").toString();
+//
+//                        JSONObject Object2 = foo.getJSONObject("answer2");
+//                        String strAns2 = Object2.getString("answer").toString();
+//                        String AnsId2 = Object2.getString("answer_id").toString();
+//
+//                        JSONObject Object3 = foo.getJSONObject("answer3");
+//                        String strAns3 = Object3.getString("answer").toString();
+//                        String AnsId3 = Object3.getString("answer_id").toString();
+//
+//                        JSONObject Object4 = foo.getJSONObject("answer4");
+//                        String strAns4 = Object4.getString("answer").toString();
+//                        String AnsId4 = Object4.getString("answer_id").toString();
+
+
+                //foo = foo.
+                displaypoll = new DisplayRecords();
+                displaypoll.setPoll_guid(poll.getString("poll_guid").toString());
+                displaypoll.setPoll_title(poll.getString("poll_title").toString());
+                displaypoll.setPoll_description(poll.getString("poll_description").toString());
+                displaypoll.setPoll_question(poll.getString("question").toString());
+                displaypoll.setEnd_date(poll.getString("end_date").toString());
+                displaypoll.setStatus(poll.getInt("status"));
+
+
+                List<Object> answerJSON = new ArrayList<>();
+                List<Object> answerJSON2 = new ArrayList<>();
+                List<Object> answerJSON3 = new ArrayList<>();
+                List<Object> answerJSON4 = new ArrayList<>();
+
+                try {
+
+                    JSONObject answerArray1 = poll.getJSONObject("answer");
+                    answerJSON.add(answerArray1.get("answer_id"));
+                    answerJSON.add(answerArray1.get("answer"));
+                    displaypoll.setAnswer1(answerJSON);
+
+                    JSONObject answerArray2 = poll.getJSONObject("answer2");
+                    answerJSON2.add(answerArray2.get("answer_id"));
+                    answerJSON2.add(answerArray2.get("answer"));
+                    displaypoll.setAnswer2(answerJSON2);
+
+
+                    JSONObject answerArray3 = poll.getJSONObject("answer3");
+                    answerJSON3.add(answerArray3.get("answer_id"));
+                    answerJSON3.add(answerArray3.get("answer"));
+                    displaypoll.setAnswer3(answerJSON3);
+
+
+                    JSONObject answerArray4 = poll.getJSONObject("answer4");
+                    answerJSON4.add(answerArray4.get("answer_id"));
+                    answerJSON4.add(answerArray4.get("answer"));
+                    displaypoll.setAnswer4(answerJSON4);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+                return displaypoll;
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(DisplayRecords displaypoll) {
+
+            if (displaypoll != null) {
+
+
+                savepollDetails(displaypoll);
+            } else {
+
+                Toast.makeText(Messenger.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
     }
 
     protected void savepollDetails(DisplayRecords displaypoll) {
@@ -173,46 +197,100 @@ public class Messenger extends AppCompatActivity {
 
         SavepollDetails savepollDetails = new SavepollDetails();
 
+        String pollGUID = displaypoll.getPoll_guid();
+
         myRealm.beginTransaction();
 
 
-        savepollDetails.setPoll_guid(displaypoll.getPoll_guid());
+        savepollDetails.setPoll_guid(pollGUID);
         savepollDetails.setPoll_title(displaypoll.getPoll_title());
         savepollDetails.setQuestion(displaypoll.getQuestion());
         savepollDetails.setStatus(displaypoll.getStatus());
         savepollDetails.setEnd_date(displaypoll.getEnd_date());
 
+
         myRealm.copyToRealmOrUpdate(savepollDetails);
         myRealm.commitTransaction();
 
+        PollAnswerModel pollAnswerModel = new PollAnswerModel();
+        List<Object> ansObj = displaypoll.getAnswer1();
+        pollAnswerModel.setPollIdentifier(pollGUID);
+        pollAnswerModel.setAnswerID((int)ansObj.get(0));
+        pollAnswerModel.setAnswerDescription((String)ansObj.get(1));
+        SaveAnswerToRealm(pollAnswerModel);
 
-        QueryResults();
+        PollAnswerModel pollAnswerModel2 = new PollAnswerModel();
+        List<Object> ansObj2 = displaypoll.getAnswer2();
+        pollAnswerModel2.setPollIdentifier(pollGUID);
+        pollAnswerModel2.setAnswerID((int)ansObj2.get(0));
+        pollAnswerModel2.setAnswerDescription((String)ansObj2.get(1));
+        SaveAnswerToRealm(pollAnswerModel2);
+
+        PollAnswerModel pollAnswerModel3 = new PollAnswerModel();
+        List<Object> ansObj3 = displaypoll.getAnswer3();
+        if(ansObj3 != null){
+
+            pollAnswerModel3.setPollIdentifier(pollGUID);
+            pollAnswerModel3.setAnswerID((int)ansObj3.get(0));
+            pollAnswerModel3.setAnswerDescription((String)ansObj3.get(1));
+            SaveAnswerToRealm(pollAnswerModel3);
+        }
+
+        PollAnswerModel pollAnswerModel4 = new PollAnswerModel();
+        List<Object> ansObj4 = displaypoll.getAnswer4();
+        if(ansObj4 != null){
+
+            pollAnswerModel4.setPollIdentifier(pollGUID);
+            pollAnswerModel4.setAnswerID((int)ansObj4.get(0));
+            pollAnswerModel4.setAnswerDescription((String)ansObj4.get(1));
+            SaveAnswerToRealm(pollAnswerModel4);
+        }
+      Intent intent = new Intent(getApplicationContext(),PollsDisplayActivity.class);
+        startActivity(intent);
+       // QueryResults();
+    }
+
+    public void SaveAnswerToRealm(PollAnswerModel pollAnswerModel){
+        //Initialize Realm
+        Realm.init(this);
+
+        //obtain realm instance
+        myRealm = Realm.getDefaultInstance();
+        myRealm.beginTransaction();
+
+
+        myRealm.copyToRealmOrUpdate(pollAnswerModel);
+        myRealm.commitTransaction();
     }
 
     private void QueryResults() {
         myRealm.beginTransaction();
         RealmResults<SavepollDetails> query = myRealm.where(SavepollDetails.class).findAll();
-
-
+        RealmResults<PollAnswerModel> answerQuery = myRealm.where(PollAnswerModel.class).findAll();
 
         for (SavepollDetails r : query) {
 
-            tvJson.setText("Title: " + r.getPoll_title() + "\nQuestion : " + r.getQuestion()  + "\nEnd date ");
-           //+ r.getEnd_date() + "Answer:" + r.getAnswer1()
-            //  + "Answer 2:" + r.getAnswer2()  + "Answer 3" + r.getAnswer3() + "Answer 4 :"  + r.getAnswer4());
+            tvJson.setText("Title: " + r.getPoll_title() + "\nQuestion : " + r.getQuestion() + "\nEnd date: "
+                    + r.getEnd_date() + "\nGuid: " + r.getPoll_guid());
 
             Log.d("GUID: ", r.getPoll_guid());
             Log.d("Title: ", r.getPoll_title());
+            Log.d("Question : ", r.getQuestion());
 
         }
 
-        //        //Add query conditions
-        //        query.equalTo("poll_title", savepollDetails());
-        //
-        //        query.or().equalTo("poll_title", SavepollDetails);
+        for (PollAnswerModel ans : answerQuery) {
 
-        //execute the query:
-        myRealm.commitTransaction();
+            tvJson.append("Answer ID: " + ans.getAnswerID() + "\nAnswer : " + ans.getAnswerDescription() + "\nBelongs to PollGUID: "
+                    + ans.getPollIdentifier());
+
+            Log.d("GUID: ", ans.getPollIdentifier());
+            Log.d("Answer: ", ans.getAnswerDescription());
+            Log.d("Answer ID: ", "" + ans.getAnswerID());
+
+        }
+
+               myRealm.commitTransaction();
 
     }
 
@@ -224,7 +302,8 @@ public class Messenger extends AppCompatActivity {
         super.onDestroy();
     }
 }
-//
+
+
 //
 //    public void showProgressDialog() {
 //        if (mProgressDialog == null) {
@@ -234,6 +313,8 @@ public class Messenger extends AppCompatActivity {
 //        }
 //        mProgressDialog.show();
 //    }
+
+
 
 
 

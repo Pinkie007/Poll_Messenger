@@ -36,7 +36,7 @@ public class PostPollActivity extends AppCompatActivity {
 
         Button btnPost = (Button) findViewById(R.id.btnPost);
 
-              mpostService = ApiUtils.getPostApi();
+
 
         //Meta data version
         //guid is here

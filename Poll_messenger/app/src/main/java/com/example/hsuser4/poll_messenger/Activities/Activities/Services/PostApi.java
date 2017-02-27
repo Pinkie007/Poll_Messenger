@@ -5,6 +5,7 @@ import com.example.hsuser4.poll_messenger.Activities.Activities.Model.PostPollMo
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -13,6 +14,7 @@ import retrofit2.http.POST;
 
 public interface PostApi {
     @POST("/{tennantID}/api/AnsResult")
+    @Headers("Content-Type: application/json")
     @FormUrlEncoded
     Call<PostPollModel> savePost(
             @Field("pollGuid") String pollGuid,

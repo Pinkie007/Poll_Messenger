@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.hsuser4.poll_messenger.Activities.Activities.Model.PollAnswerModel;
 import com.example.hsuser4.poll_messenger.Activities.Activities.Model.PostPollModel;
@@ -49,8 +50,6 @@ private ArrayList<PollAnswerModel> arrayList = new ArrayList<PollAnswerModel>();
         mContext = context;
         this.arrayList =arrayList;
     }
-
-
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -75,21 +74,22 @@ private ArrayList<PollAnswerModel> arrayList = new ArrayList<PollAnswerModel>();
             @Override
             public void onClick(View v) {
 
-                mpostService = ApiUtils.getPostApi();
+//                mpostService = ApiUtils.getPostApi();
 
                 String guii=pollAnswerModel.getPollIdentifier().toString();
                 int id=pollAnswerModel.getAnswerID();
                 sendPost(guii,id,os_type,location,manu,dev,os_version,user_name,user_id,dateVoted);
             }
         });
-
     }
 
 
     public void sendPost(String pollGuid, int ansId, String os_type, String location, String manufacturer,String device_model,
                          String os_version, String user_name, String user_id, String date_voted)
     {
-        mpostService.savePost(pollGuid, ansId,os_type, location,manufacturer,device_model,os_version,user_name,user_id,date_voted).enqueue(new Callback<PostPollModel>() {
+        ApiUtils.getPostApi();
+        mpostService.savePost(pollGuid, ansId, os_type, location, manufacturer, device_model, os_version, user_name, user_id, date_voted)
+                .enqueue(new Callback<PostPollModel>() {
 
             @Override
             public void onResponse(Call<PostPollModel> call, Response<PostPollModel> response) {
@@ -98,11 +98,16 @@ private ArrayList<PollAnswerModel> arrayList = new ArrayList<PollAnswerModel>();
                     showResponse(response.body().toString());
                     Log.i("TAG", "post submitted to API" + response.body().toString());
 
+                    Toast.makeText(mContext,"success",Toast.LENGTH_SHORT).show();
+
                 }
             }
             @Override
             public void onFailure(Call<PostPollModel> call, Throwable t) {
                 Log.e("TAG", "Unable to submit post to API" );
+
+                Toast.makeText(mContext,"failed check connection",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -110,7 +115,6 @@ private ArrayList<PollAnswerModel> arrayList = new ArrayList<PollAnswerModel>();
     public void showResponse(String response ) {
 
     }
-
 
 
     @Override
@@ -133,6 +137,7 @@ private ArrayList<PollAnswerModel> arrayList = new ArrayList<PollAnswerModel>();
             Options = (Button)itemView.findViewById(R.id.btnOptions);
 
         }
+
 
 
     }

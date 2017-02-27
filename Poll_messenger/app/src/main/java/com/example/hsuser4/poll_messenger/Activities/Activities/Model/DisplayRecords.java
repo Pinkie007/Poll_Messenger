@@ -1,13 +1,12 @@
 package com.example.hsuser4.poll_messenger.Activities.Activities.Model;
 
+import android.support.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by hsuser4 on 2017/02/09.
- */
 
 public class DisplayRecords {
     //Declare variables
@@ -20,7 +19,7 @@ public class DisplayRecords {
     @SerializedName("question")
     String question;
     @SerializedName("answer")
-    private List<DisplayRecords> answer;
+   private List<DisplayRecords> answer;
     @SerializedName("start_date")
     String start_date;
     @SerializedName("end_date")
@@ -33,49 +32,61 @@ public class DisplayRecords {
     String notification_text;
     @SerializedName("share_url")
     String share_url;
+
     @SerializedName("author")
     String author;
+
     @SerializedName("status")
     int status;
-    @SerializedName("answer1")
-     String answer1;
+
+    @SerializedName("answer")
+    List<Object> answer1;
+
     @SerializedName("answer2")
-    String answer2;
+    List<Object> answer2;
+
+    @Nullable
     @SerializedName("answer3")
-    String answer3  ;
+    List<Object> answer3  ;
+
+    @Nullable
     @SerializedName("answer4")
-    String answer4;
+    List<Object> answer4;
 
+    @SerializedName("answer_id")
+    private List<DisplayRecords>answer_id;
 
-    public String getAnswer1() {
+    public List<PollAnswerModel> answerList;
+
+    public List<Object> getAnswer1() {
         return answer1;
     }
 
-    public void setAnswer1(String answer1) {
+    public void setAnswer1(List<Object> answer1) {
         this.answer1 = answer1;
     }
 
-    public String getAnswer2() {
+    public List<Object> getAnswer2() {
         return answer2;
     }
 
-    public void setAnswer2(String answer2) {
+    public void setAnswer2(List<Object> answer2) {
         this.answer2 = answer2;
     }
 
-    public String getAnswer3() {
+    public List<Object> getAnswer3() {
         return answer3;
     }
 
-    public void setAnswer3(String answer3) {
+    public void setAnswer3(List<Object> answer3) {
         this.answer3 = answer3;
     }
 
-    public String getAnswer4() {
+    public List<Object> getAnswer4() {
         return answer4;
     }
 
-    public void setAnswer4(String answer4) {
+    public void setAnswer4(List<Object> answer4) {
         this.answer4 = answer4;
     }
 
@@ -111,6 +122,16 @@ public class DisplayRecords {
         this.question = question;
     }
 
+
+
+
+    public List<PollAnswerModel> getAnswerList() {
+        return answerList;
+    }
+
+    public void setAnswerList(List<PollAnswerModel> answerList) {
+        this.answerList = answerList;
+    }
 
     public String getStart_date() {
         return start_date;
@@ -182,6 +203,14 @@ public class DisplayRecords {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public List<DisplayRecords> getAnswer_id() {
+        return answer_id;
+    }
+
+    public void setAnswer_id(List<DisplayRecords> answer_id) {
+        this.answer_id = answer_id;
+    }
     public List<DisplayRecords> getAnswer() {
         return answer;
     }
@@ -189,6 +218,4 @@ public class DisplayRecords {
     public void setAnswer(List<DisplayRecords> answer) {
         this.answer = answer;
     }
-
-
 }
